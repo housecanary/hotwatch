@@ -23,6 +23,8 @@ parser.add_argument('--host',
     help="Server hostname (example: 127.0.0.1)")
 parser.add_argument('--port', type=int,
     help="Server port (example: 6379)")
+parser.add_argument('--password',
+    help="Server password")
 parser.add_argument('--db', type=int,
     help="Database number (example: 1)")
 
@@ -35,7 +37,7 @@ def main():
     
     # Connect to the given Redis host:
     store_kwargs = {}
-    for arg_name in ['host', 'port', 'db']:
+    for arg_name in ['host', 'port', 'db', 'password']:
         value = getattr(args, arg_name, None)
         if value is None:
             continue
